@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_template/views/splash/splash_screen.dart';
 
 import 'core/services/intializer.dart';
 import 'core/theme/app_theme.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget with WidgetsBindingObserver {
       themeMode: ThemeMode.light,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      home: const Scaffold(),
+      home: SplashScreen(),
     );
   }
 }

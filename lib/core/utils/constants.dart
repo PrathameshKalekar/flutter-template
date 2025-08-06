@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 
 class Constants {
   static const bool isProduction = true;
@@ -14,4 +15,13 @@ class Constants {
 
   //Shared Preferences Keys
   static const String userToken = "userToken";
+
+  //Numerical Constants
+  static const screenPadding = EdgeInsets.symmetric(horizontal: 16,vertical: 12);
+  static const width12 = SizedBox(width: 12);
+  static const width16 = SizedBox(width: 16);
+  static const width20 = SizedBox(width: 20);
+  static const height12 = SizedBox(height: 12);
+  static const height16 = SizedBox(height: 16);
+  static const height20 = SizedBox(height: 20);
 }

@@ -2,10 +2,12 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_template/core/utils/extentions.dart';
+import 'package:flutter_template/widgets/custom_button.dart';
 import 'package:get/get.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 import '../../controllers/basic/basic_controller.dart';
+import '../../widgets/image_picker_sheet.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -29,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
       if (value.isSuccess) {
         PackageInfo info = await PackageInfo.fromPlatform();
         basicController.updateAppVersionnDetails(info.version, info.buildNumber);
-        if ((Platform.isIOS ? basicController.appSettings?.iosAppVersion??1 : basicController.appSettings?.appVersion??1) > info.buildNumber.toInt) {
+        if ((Platform.isIOS ? basicController.appSettings?.iosAppVersion ?? 1 : basicController.appSettings?.appVersion ?? 1) > info.buildNumber.toInt) {
           if (!mounted) return;
           //Show Update Dialog
         } else if ((Platform.isAndroid ? basicController.appSettings?.maintainanceMode : basicController.appSettings?.iosMaintainanceMode) == 'on') {
@@ -38,14 +40,26 @@ class _SplashScreenState extends State<SplashScreen> {
         } else {
           //Navigation After the success
         }
-        } else {
-          //Show Error Toast
+      } else {
+        //Show Error Toast
       }
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CustomButton(
+            onTap: () {
+              showImagePickerSheet(context);
+            },
+            title: "Show Image Picker",
+          ),
+        ],
+      ),
+    );
   }
 }
