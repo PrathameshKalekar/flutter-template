@@ -4,7 +4,7 @@ import 'package:page_transition/page_transition.dart';
 
 class Helper {
   final BuildContext context;
-  Helper({required this.context});
+  Helper( this.context);
 
   Size get size => MediaQuery.sizeOf(context);
   TextTheme get textTheme => Theme.of(context).textTheme;

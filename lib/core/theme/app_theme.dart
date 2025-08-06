@@ -16,6 +16,7 @@ Color blue = Colors.blue;
 Color yellow = Colors.yellow;
 Color orange = Colors.orange;
 
+
 class AppTheme {
   static ThemeData get lightTheme => ThemeData(
         brightness: Brightness.light,
@@ -25,24 +26,10 @@ class AppTheme {
           backgroundColor: primaryColor,
           iconTheme: IconThemeData(color: black),
         ),
-        textTheme: TextTheme(
-          labelLarge: GoogleFonts.poppins(),
-          headlineLarge: GoogleFonts.poppins(),
-          headlineMedium: GoogleFonts.poppins(),
-          headlineSmall: GoogleFonts.poppins(),
-          displayLarge: GoogleFonts.poppins(),
-          displayMedium: GoogleFonts.poppins(),
-          displaySmall: GoogleFonts.poppins(),
-          titleLarge: GoogleFonts.poppins(),
-          titleMedium: GoogleFonts.poppins(),
-          titleSmall: GoogleFonts.poppins(),
-          bodyLarge: GoogleFonts.poppins(),
-          bodyMedium: GoogleFonts.poppins(),
-          bodySmall: GoogleFonts.poppins(),
-        ),
+        textTheme: textTheme,
       );
 
-      static ThemeData get darkTheme => ThemeData(
+  static ThemeData get darkTheme => ThemeData(
         brightness: Brightness.dark,
         primaryColor: primaryColor,
         scaffoldBackgroundColor: scaffoldBackgroundColor,
@@ -50,21 +37,61 @@ class AppTheme {
           backgroundColor: primaryColor,
           iconTheme: IconThemeData(color: white),
         ),
-        textTheme: TextTheme(
-          labelLarge: GoogleFonts.poppins(),
-          headlineLarge: GoogleFonts.poppins(),
-          headlineMedium: GoogleFonts.poppins(),
-          headlineSmall: GoogleFonts.poppins(),
-          displayLarge: GoogleFonts.poppins(),
-          displayMedium: GoogleFonts.poppins(),
-          displaySmall: GoogleFonts.poppins(),
-          titleLarge: GoogleFonts.poppins(),
-          titleMedium: GoogleFonts.poppins(),
-          titleSmall: GoogleFonts.poppins(),
-          bodyLarge: GoogleFonts.poppins(),
-          bodyMedium: GoogleFonts.poppins(),
-          bodySmall: GoogleFonts.poppins(),
-        ),
-
-      );    
+        textTheme: textTheme,
+      );
 }
+
+TextTheme textTheme = TextTheme(
+  labelLarge: GoogleFonts.poppins(
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+  ),
+  headlineLarge: GoogleFonts.poppins(
+    fontSize: 32,
+    fontWeight: FontWeight.bold,
+  ),
+  headlineMedium: GoogleFonts.poppins(
+    fontSize: 28,
+    fontWeight: FontWeight.w700,
+  ),
+  headlineSmall: GoogleFonts.poppins(
+    fontSize: 24,
+    fontWeight: FontWeight.w600,
+  ),
+  displayLarge: GoogleFonts.poppins(
+    fontSize: 40,
+    fontWeight: FontWeight.bold,
+  ),
+  displayMedium: GoogleFonts.poppins(
+    fontSize: 36,
+    fontWeight: FontWeight.w700,
+  ),
+  displaySmall: GoogleFonts.poppins(
+    fontSize: 32,
+    fontWeight: FontWeight.w600,
+  ),
+  titleLarge: GoogleFonts.poppins(
+    fontSize: 22,
+    fontWeight: FontWeight.w600,
+  ),
+  titleMedium: GoogleFonts.poppins(
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+  ),
+  titleSmall: GoogleFonts.poppins(
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+  ),
+  bodyLarge: GoogleFonts.poppins(
+    fontSize: 16,
+    fontWeight: FontWeight.normal,
+  ),
+  bodyMedium: GoogleFonts.poppins(
+    fontSize: 14,
+    fontWeight: FontWeight.normal,
+  ),
+  bodySmall: GoogleFonts.poppins(
+    fontSize: 12,
+    fontWeight: FontWeight.normal,
+  ),
+);
