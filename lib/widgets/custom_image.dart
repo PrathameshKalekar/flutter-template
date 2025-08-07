@@ -1,8 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_template/core/utils/constants.dart';
+import 'package:flutter_template/core/utils/custom_router.dart';
 
 import '../../generated/assets.dart';
+import 'base/image_gallary.dart';
 
 export '../../generated/assets.dart';
 
@@ -43,7 +45,7 @@ class CustomImage extends StatelessWidget {
                 onTap!();
               }
               if (viewFullScreen) {
-                // Navigator.push(context, getCustomRoute(child: ImageGallery(images: [path])));
+                Navigator.push(context, customRoute(child: ImageGallery(images: [path])));
               }
             }
           : null,
@@ -65,9 +67,6 @@ class CustomImage extends StatelessWidget {
             if (!url.startsWith('http')) {
               url = Constants.baseUrl + url;
             }
-
-            // log(url, name: "IMAGE");
-
             return CachedNetworkImage(
               imageUrl: url,
               height: height,

@@ -3,10 +3,10 @@
 import 'package:flutter/material.dart';
 
 import '../core/utils/helpers.dart';
+import 'custom_textfeild.dart';
 
-///TODO: Define toString() method for the model or Pass a data as List of String.
 class DropDownKiller<T> extends StatefulWidget {
-  const DropDownKiller({Key? key, required this.data, required this.onSelected}) : super(key: key);
+  const DropDownKiller({super.key, required this.data, required this.onSelected});
 
   final List<T> data;
   final Function(T result) onSelected;
@@ -39,15 +39,16 @@ class _DropDownKillerState<T> extends State<DropDownKiller<T>> {
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Column(
           children: [
-            // Padding(
-            //   padding: const EdgeInsets.symmetric(vertical: 15.0),
-            //   child: CustomTextfeild(
-            //     hint: "Search here",
-            //     controller: textEditingController,
-            //     icon: Icons.search,
-            //     onChanged: onSearched,
-            //   ),
-            // ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 15.0),
+              child: CustomTextField(
+                hintText: "Search here",
+                controller: textEditingController,
+                prefixIcon: const Icon(Icons.search),
+                onChanged: onSearched,
+                type: CustomTextFieldType.text,
+              ),
+            ),
             Expanded(
               child: ListView.builder(
                 itemCount: searched ? searchedList.length : widget.data.length,

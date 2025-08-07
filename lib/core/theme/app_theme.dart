@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 //App Colors
@@ -16,7 +17,6 @@ Color blue = Colors.blue;
 Color yellow = Colors.yellow;
 Color orange = Colors.orange;
 
-
 class AppTheme {
   static ThemeData get lightTheme => ThemeData(
         brightness: Brightness.light,
@@ -25,6 +25,10 @@ class AppTheme {
         appBarTheme: AppBarTheme(
           backgroundColor: primaryColor,
           iconTheme: IconThemeData(color: black),
+          systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: primaryColor,
+            statusBarIconBrightness: Brightness.light,
+          ),
         ),
         textTheme: textTheme,
       );
@@ -36,6 +40,10 @@ class AppTheme {
         appBarTheme: AppBarTheme(
           backgroundColor: primaryColor,
           iconTheme: IconThemeData(color: white),
+          systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: primaryColor,
+            statusBarIconBrightness: Brightness.light,
+          ),
         ),
         textTheme: textTheme,
       );
