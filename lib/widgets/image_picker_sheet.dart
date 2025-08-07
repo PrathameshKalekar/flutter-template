@@ -1,12 +1,17 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_template/core/theme/app_theme.dart';
 import 'package:flutter_template/core/utils/constants.dart';
 import 'package:flutter_template/core/utils/helpers.dart';
 import 'package:flutter_template/generated/assets.dart';
+import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
-showImagePickerSheet(BuildContext context) {
-  showModalBottomSheet(
+import '../controllers/service/service_controller.dart';
+
+Future<File?> showImagePickerSheet(BuildContext context) async {
+  return await showModalBottomSheet<File?>(
     context: context,
     backgroundColor: white,
     isScrollControlled: true,
@@ -19,18 +24,25 @@ class ImagePickerSheet extends StatelessWidget {
     super.key,
   });
 
+
   @override
   Widget build(BuildContext context) {
     List<ImagePickerItems> items = [
       ImagePickerItems(
         title: "Camera",
         image: Assets.svgsCamera,
-        onTap: () {},
+        onTap: () async {
+          final file = await Get.find<ServiceController>().pickImage(source: ImageSource.camera, context: context);
+          Navigator.of(context).pop(file);
+        },
       ),
       ImagePickerItems(
         title: "Gallery",
         image: Assets.svgsGallery,
-        onTap: () {},
+        onTap: () async {
+          final file = await Get.find<ServiceController>().pickImage(source: ImageSource.gallery, context: context);
+          Navigator.of(context).pop(file);
+        },
       ),
     ];
     return Container(
@@ -106,7 +118,7 @@ class ImagePickerSheet extends StatelessWidget {
 class ImagePickerItems {
   final String title;
   final String image;
-  final Function() onTap;
+  final Future<void> Function() onTap;
 
   ImagePickerItems({
     required this.title,

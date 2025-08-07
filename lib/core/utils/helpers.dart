@@ -4,7 +4,7 @@ import 'package:page_transition/page_transition.dart';
 
 class Helper {
   final BuildContext context;
-  Helper( this.context);
+  Helper(this.context);
 
   Size get size => MediaQuery.sizeOf(context);
   TextTheme get textTheme => Theme.of(context).textTheme;
@@ -44,7 +44,7 @@ class Helper {
     }
   }
 
-  void pop(BuildContext context, {dynamic data}) {
+  void pop( {dynamic data}) {
     Navigator.pop(context, data);
   }
 }

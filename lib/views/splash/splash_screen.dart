@@ -3,11 +3,11 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_template/core/utils/extentions.dart';
 import 'package:flutter_template/widgets/custom_button.dart';
+import 'package:flutter_template/widgets/image_picker_sheet.dart';
 import 'package:get/get.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 import '../../controllers/basic/basic_controller.dart';
-import '../../widgets/image_picker_sheet.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -56,7 +56,7 @@ class _SplashScreenState extends State<SplashScreen> {
             onTap: () {
               showImagePickerSheet(context);
             },
-            title: "Show Image Picker",
+            title: "Permission Dialog",
           ),
         ],
       ),
