@@ -5,11 +5,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:path_provider/path_provider.dart';
 
+import '../../core/utils/constants.dart';
 import '../../widgets/custom_toast.dart';
 
 class ServiceController extends GetxController implements GetxService{
   ServiceController();
+  
+  final GetConnect _connect = GetConnect();
 
   /// Picks an image from the given [source] (camera or gallery), requests permission for camera (and for gallery on iOS), and returns the selected [File].
   /// Only [ImageSource.camera] or [ImageSource.gallery] are allowed.
@@ -64,6 +68,21 @@ class ServiceController extends GetxController implements GetxService{
     }
 
     return File(pickedFile.path);
+  }
+
+  Future<File?> urlToFile({required String url}) async {
+   final  String fileUrl; 
+    if(url.contains('http')){
+      fileUrl = "${Constants.appName}$url";
+    } else{
+      fileUrl = url;
+    }
+    final response = await _connect.get(fileUrl);
+    final tempDir = await getTemporaryDirectory();
+    final tempFile = File('${tempDir.path}/${url.split('/').last}');
+    final bytes = response.bodyBytes as List<int>? ?? [];
+    await tempFile.writeAsBytes(bytes);
+    return tempFile;
   }
   
 }
