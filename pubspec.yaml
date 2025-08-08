@@ -1,48 +1,70 @@
 name: flutter_template
 description: "A new Flutter project."
-
 publish_to: 'none' 
-
 version: 1.0.0+1
 
+# The environment section specifies the Dart SDK version required for this project.
 environment:
+  # The minimum Dart SDK version required is 3.6.0 or higher.
   sdk: ^3.6.0
 
+
+# The dependencies section lists all the packages required for the app to run.
 dependencies:
+  # The Flutter SDK itself, required for all Flutter projects.
   flutter:
     sdk: flutter
-
   cupertino_icons: ^1.0.8
+  # get: A state management solution for Flutter.
   get: ^4.7.2
+  # shared_preferences: For storing simple data locally on the device.
   shared_preferences: ^2.5.3
+  # page_transition: For custom page transition animations.
   page_transition: ^2.2.1
+  # intl: For internationalization, formatting dates, times, and numbers.
   intl: ^0.20.2
+  # google_fonts: To use Google Fonts in the app.
   google_fonts: ^6.3.0
+  # package_info_plus: To get information about the app package (like version, build number).
   package_info_plus: ^8.3.0
+  # cached_network_image: For loading and caching network images.
   cached_network_image: ^3.4.1
+  # flutter_svg: To render SVG images in the app.
   flutter_svg: ^2.2.0
+  # shimmer: For displaying shimmer loading effects (placeholder animations).
   shimmer: ^3.0.0
+  # toastification: For showing toast notifications.
   toastification: ^3.0.3
+  # image_picker: To pick images from the gallery or camera.
   image_picker: ^1.1.2
+  # permission_handler: To handle permissions (like camera, storage, etc.).
   permission_handler: ^12.0.1
+  # sms_autofill: For SMS code autofill functionality.
   sms_autofill: ^2.4.1
+  # path_provider: To find commonly used locations on the filesystem.
   path_provider: ^2.1.5
 
+
+# dev_dependencies are only needed during development and testing.
 dev_dependencies:
+  # flutter_test: For writing and running tests with the Flutter framework.
   flutter_test:
     sdk: flutter
-  # rules and activating additional ones.
+  # flutter_lints: Provides recommended lints and rules for Dart and Flutter code.
   flutter_lints: ^5.0.0
 
 
+# The flutter section configures Flutter-specific options.
 flutter:
-
+  # Enables the use of Material Design widgets and themes.
   uses-material-design: true
-
+  # The assets section lists files and directories that should be included with the app.
   assets:
     - assets/images/
     - assets/svgs/
 
+
+# flutter_assets is a custom configuration for asset code generation.
 flutter_assets:
   assets_path: assets/
   output_path: lib/generated/
