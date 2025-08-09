@@ -45,5 +45,22 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	
+	<!-- ===== REQUIRED PERMISSIONS (Your app actually uses these) ===== -->
+	
+	<!-- Camera Permission - Required for image_picker camera access -->
+	<key>NSCameraUsageDescription</key>
+	<string>This app needs camera access to take photos.</string>
+	
+	<!-- Photo Library Permission - Required for image_picker gallery access -->
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app needs photo library access to select images from your gallery.</string>
+	
+	<!-- Network Security - Required for cached_network_image and API calls -->
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

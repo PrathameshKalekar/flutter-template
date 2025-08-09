@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_template/core/utils/extentions.dart';
+import 'package:flutter_template/widgets/custom_button.dart';
+import 'package:flutter_template/widgets/image_picker_sheet.dart';
 import 'package:get/get.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
@@ -48,7 +50,17 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[50],
-      body: Column(),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CustomButton(
+            onTap: () {
+              showImagePickerSheet(context);
+            },
+            title: "Show Image Sheet",
+          )
+        ],
+      ),
     );
   }
 }
